@@ -51,6 +51,7 @@ class tarmak (
   Integer $etcd_gid = 873,
   String $etcd_home = '/etc/etcd',
   String $etcd_ssl_dir = '/etc/etcd/ssl',
+  String $etcd_cn = 'etcd-server',
   Integer $etcd_instances = 3,
   String $etcd_advertise_client_network = $tarmak::params::etcd_advertise_client_network,
   Integer[1,65535] $etcd_overlay_client_port = 2359,

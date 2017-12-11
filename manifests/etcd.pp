@@ -40,7 +40,7 @@ class tarmak::etcd(
 
   vault_client::cert_service { 'etcd-k8s-main':
     base_path   => "${::tarmak::etcd_ssl_dir}/${::tarmak::etcd_k8s_main_ca_name}",
-    common_name => 'etcd-server',
+    common_name => $::tarmak::etcd_cn,
     alt_names   => $alt_names,
     ip_sans     => $ip_sans,
     role        => "${tarmak::cluster_name}/pki/${::tarmak::etcd_k8s_main_ca_name}/sign/server",
@@ -52,7 +52,7 @@ class tarmak::etcd(
 
   vault_client::cert_service { 'etcd-k8s-overlay':
     base_path   => "${::tarmak::etcd_ssl_dir}/${::tarmak::etcd_overlay_ca_name}",
-    common_name => 'etcd-server',
+    common_name => $::tarmak::etcd_cn,
     alt_names   => $alt_names,
     ip_sans     => $ip_sans,
     role        => "${tarmak::cluster_name}/pki/${::tarmak::etcd_overlay_ca_name}/sign/server",
