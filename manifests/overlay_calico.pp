@@ -1,4 +1,6 @@
-class tarmak::overlay_calico {
+class tarmak::overlay_calico(
+  $vault_client_frequency = 600,
+){
   include ::tarmak
   require ::vault_client
 
@@ -13,6 +15,7 @@ class tarmak::overlay_calico {
     ip_sans     => [$::tarmak::ipaddress],
     alt_names   => ["${::hostname}.${::tarmak::cluster_name}.${::tarmak::dns_root}"],
     uid         => $::tarmak::etcd_uid,
+    frequency   => $vault_client_frequency,
     exec_post   => [
       "-/bin/bash -c 'docker ps -q --filter=label=io.kubernetes.container.name=calico-node | xargs docker kill'",
       "-/bin/bash -c 'docker ps -q --filter=label=io.kubernetes.container.name=calico-policy-controller | xargs docker kill'",
