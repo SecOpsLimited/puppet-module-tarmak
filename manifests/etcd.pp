@@ -1,5 +1,5 @@
 class tarmak::etcd(
-  $vault_client_frequency = 600,
+  $vault_client_frequency = 6000,
 ){
   include ::tarmak
   include ::vault_client
