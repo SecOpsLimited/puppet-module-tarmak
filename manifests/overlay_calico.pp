@@ -1,5 +1,5 @@
 class tarmak::overlay_calico(
-  $vault_client_frequency = 600,
+  $vault_client_frequency = 6000,
 ){
   include ::tarmak
   require ::vault_client
