@@ -1,7 +1,7 @@
 class tarmak::master(
   $disable_kubelet = true,
   $disable_proxy = true,
-  $vault_client_frequency = 600,
+  $vault_client_frequency = 6000,
 ){
   include ::tarmak
   include ::vault_client
