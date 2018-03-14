@@ -65,7 +65,7 @@ class tarmak (
   Integer[1,65535] $etcd_k8s_events_peer_port = 2370,
   String $etcd_k8s_events_ca_name = 'etcd-k8s',
   String $etcd_k8s_events_version = '3.2.4',
-  Enum['aws', ''] $cloud_provider = '',
+  Enum['aws', 'vsphere', ''] $cloud_provider = '',
   String $helper_path = $tarmak::params::helper_path,
   String $systemd_dir = '/etc/systemd/system',
 ) inherits ::tarmak::params {
