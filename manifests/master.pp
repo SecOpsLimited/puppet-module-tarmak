@@ -7,6 +7,7 @@ class tarmak::master(
   include ::vault_client
 
   $apiserver_alt_names = unique([
+    'api.vanti.me',
     "${::tarmak::kubernetes_api_prefix}.${::tarmak::cluster_name}.${::tarmak::dns_root}",
     'kubernetes',
     'kubernetes.default',
